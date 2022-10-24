@@ -1,3 +1,11 @@
+export interface IVehicle {
+  model: string,
+  year: number,
+  color: string,
+  status?: boolean,
+  buyValue: number,
+}
+
 // import { z } from 'zod';
 
 // const ivehicleZodSchema = z.object({
@@ -11,11 +19,3 @@
 // export type IVehicle = z.infer<typeof ivehicleZodSchema>;
 
 // export default ivehicleZodSchema;
-
-export interface IVehicle {
-  model: string,
-  year: number,
-  color: string,
-  status?: boolean,
-  buyValue: number,
-}
