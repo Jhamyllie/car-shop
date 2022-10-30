@@ -1,16 +1,8 @@
-// import { z } from 'zod';
-
 import { IVehicle } from './IVehicle';
 
-// const carZodSchema extends ivehicleZodSchema = ({
-//   doorsQty: z.number().min(2).max(4),
-//   seatsQty: z.number().min(2).max(7),
-// });
-
-// type Icar = z.infer<typeof carZodSchema>;
-// export { Icar, carZodSchema };
-
 export interface ICar extends IVehicle {
-  doorsQty: number,
+  doorsQty: number
   seatsQty: number,
 }
+
+// não dá, simplesmente não consigo extender e usar o zod ao mesmo tempo. Eu não aṕrendi nada
