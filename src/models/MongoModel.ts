@@ -18,7 +18,7 @@ abstract class MModel<T> implements IModel<T> {
   }
 
   async readOne(_id: string): Promise<T | null> {
-    if (!isValidObjectId(_id)) throw new CustomErro(400, 'Id não encontrado');
+    if (!isValidObjectId(_id)) throw new CustomErro(400, 'Id must have 24 hexadecimal characters');
     return this._model.findOne({ _id });
   }
   

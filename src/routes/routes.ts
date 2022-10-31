@@ -12,4 +12,6 @@ routes.post('/cars', (req, res) => controller.create(req, res));
 
 routes.get('/cars', (req, res) => controller.read(req, res));
 
+routes.get('/cars/:id', (req, res) => controller.readOne(req, res));
+
 export default routes;

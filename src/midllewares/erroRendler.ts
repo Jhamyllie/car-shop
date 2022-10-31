@@ -12,7 +12,7 @@ const erroHandler: ErrorRequestHandler = (
     return res.status(400).json({ message: err.issues });
   }
   if (err instanceof CustomErro) {
-    return res.status(err.code).json({ message: err.message });
+    return res.status(err.code).json({ error: err.message });
   }
   console.log(err);
   return res.status(500).json({ message: 'Internal error' });
