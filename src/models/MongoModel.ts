@@ -12,13 +12,16 @@ abstract class MModel<T> implements IModel<T> {
   async create(obj: T): Promise<T> {
     return this._model.create({ ...obj });
   }
+
   async read(): Promise<T[]> {
     return this._model.find();
   }
+
   async readOne(_id: string): Promise<T | null> {
     if (!isValidObjectId(_id)) throw new CustomErro(400, 'Id não encontrado');
     return this._model.findOne({ _id });
   }
+  
   async update(_id: string): Promise<T | null> {
     if (!isValidObjectId(_id)) throw new CustomErro(400, 'Id não encontrado');
     return this._model.findByIdAndUpdate(_id);
