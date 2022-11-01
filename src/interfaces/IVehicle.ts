@@ -3,11 +3,11 @@ import { z } from 'zod';
 const ivehicleZodSchema = z.object({
   model: z.string().min(3),
   year: z.number().min(1900).max(2022),
-  color: z.string(),
+  color: z.string().min(3),
   status: z.boolean().optional(),
-  buyValue: z.number(),
+  buyValue: z.number().int().min(0),
 });
 
-export type IVehicle = z.infer<typeof ivehicleZodSchema>;
+type IVehicle = z.infer<typeof ivehicleZodSchema>;
 
-export default ivehicleZodSchema;
+export { ivehicleZodSchema, IVehicle };
