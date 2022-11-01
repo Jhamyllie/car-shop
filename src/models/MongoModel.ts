@@ -22,13 +22,13 @@ abstract class MModel<T> implements IModel<T> {
     return this._model.findOne({ _id });
   }
   
-  async update(_id: string): Promise<T | null> {
-    if (!isValidObjectId(_id)) throw new CustomErro(400, 'Id não encontrado');
-    return this._model.findByIdAndUpdate(_id);
+  async update(_id: string, obj: Partial<T>): Promise<T | null> {
+    if (!isValidObjectId(_id)) throw new CustomErro(404, 'Object not found');
+    return this._model.findOneAndUpdate({ _id }, { ...obj }, { new: true });
   }
 
   async delete(_id: string): Promise<T | null> {
-    if (!isValidObjectId(_id)) throw new CustomErro(400, 'Id inexistente');
+    if (!isValidObjectId(_id)) throw new CustomErro(400, 'Id must have 24 hexadecimal characters');
     return this._model.findByIdAndDelete({ _id });
   }
 }
