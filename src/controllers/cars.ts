@@ -21,11 +21,11 @@ export default class CarController {
     return res.status(200).json(readOneCar);
   }
 
-  // async update(req: Request, res: Response) {
-  //   const { id } = req.params;
-  //   const updateRegister = await this._carService.update(id, req.body);
-  //   return res.status(200).json(updateRegister);
-  // }
+  async update(req: Request, res: Response<ICar>) {
+    const { params, body } = req;
+    const updateRegister = await this._carService.update(params.id, body);
+    return res.status(200).json(updateRegister);
+  }
 
   async delete(req: Request, res: Response) {
     // const { id } = req.params;
