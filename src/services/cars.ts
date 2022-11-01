@@ -29,4 +29,18 @@ export default class CarService implements IService<ICar> {
     if (!car) throw new CustomErro(404, 'Object not found');
     return car;
   }
+
+  // async update(_id: string, obj: unknown): Promise<ICar> {
+  //   const parsed = CarZodSchema.safeParse(obj);
+  //   if (!parsed.success) throw parsed.error;
+  //   const car = await this._cars.update(_id, parsed.data);
+  //   if (!car) throw new CustomErro(404, 'Object not found');
+  //   return car;
+  // }
+  
+  async delete(_id: string): Promise<ICar> {
+    const deleteCar = await this._cars.delete(_id);
+    if (!deleteCar) throw new CustomErro(400, 'Id must have 24 hexadecimal characters');
+    return deleteCar;
+  }
 }
