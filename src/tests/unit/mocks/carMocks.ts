@@ -20,4 +20,6 @@ const carMockId: ICar & { _id: string } = {
     status: true
 }
 
-export {carMock, carMockId};
+const carsList = [ carMockId, carMockId, carMockId ];
+
+export {carMock, carMockId, carsList};
