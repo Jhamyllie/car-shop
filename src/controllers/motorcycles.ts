@@ -11,14 +11,14 @@ export default class MotorcycleController {
   }
 
   async read(_req: Request, res: Response) {
-    const readCar = await this._MotorcycleService.read();
-    return res.status(200).json(readCar);
+    const readMotorcycle = await this._MotorcycleService.read();
+    return res.status(200).json(readMotorcycle);
   }
 
   async readOne(req: Request, res: Response) {
     const { id } = req.params;
-    const readOneCar = await this._MotorcycleService.readOne(id);
-    return res.status(200).json(readOneCar);
+    const readOneMotorcycle = await this._MotorcycleService.readOne(id);
+    return res.status(200).json(readOneMotorcycle);
   }
 
   async update(req: Request, res: Response<IMotorcycle>) {
