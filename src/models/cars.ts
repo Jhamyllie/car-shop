@@ -1,6 +1,6 @@
 import { model as createModel, Schema } from 'mongoose';
 import { ICar } from '../interfaces/ICar';
-import MongoModel from './MongoModel';
+import MongoModel from './MongoModelVehicle';
 
 // estrutura como a tabela/coleção vai ser criada dentro mongo
 const carSchema = new Schema<ICar>({

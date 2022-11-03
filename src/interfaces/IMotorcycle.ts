@@ -3,8 +3,7 @@ import { ivehicleZodSchema } from './IVehicle';
 
 const MotocicleZodSchema = ivehicleZodSchema.extend({
   category: z.enum(['Street', 'Custom', 'Trail']),
-  // category: z.string(),
-  engineCapacity: z.number().int().max(2500),
+  engineCapacity: z.number().int().min(1).max(2500),
 
 });
 
