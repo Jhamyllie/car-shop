@@ -15,6 +15,8 @@ describe('Car Controller', () => {
   
     before(async () => {  
       sinon.stub(carService, 'create').resolves(carMockWithId);
+      sinon.stub(carService, 'read').resolves([carMockWithId]);
+      sinon.stub(carService, 'readOne').resolves(carMockWithId);
   
       res.status = sinon.stub().returns(res);
       res.json = sinon.stub().returns(res);
@@ -24,11 +26,19 @@ describe('Car Controller', () => {
       sinon.restore();
     });
 
-    describe('Controle para criar um novo Car', () => {
+    describe('Cria um novo Car', () => {
       it('Se criado com sucesso', async () => {
         req.body =  carMock;
         await carController.create(req, res);
         expect((res.status as sinon.SinonStub).calledWith(201)).to.be.true;
       });
     });
+
+  describe('Consulta Carros', () => {
+      it('Em caso de sucesso', async () => {
+        req.body =  carMock;
+        await carController.read(req, res);
+        expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
+    });
   });
+});
