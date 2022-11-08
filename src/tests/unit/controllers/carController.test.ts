@@ -37,7 +37,9 @@ describe('Car Controller', () => {
   describe('Consulta Carros', () => {
       it('Em caso de sucesso', async () => {
         req.body =  carMock;
+        req.params = { id: carMockWithId._id};
         await carController.read(req, res);
+        await carController.readOne(req, res);
         expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
     });
   });
